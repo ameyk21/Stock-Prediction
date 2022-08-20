@@ -1,4 +1,4 @@
-#importing all the necessary modules
+#importing all the necessary libraries
 import numpy as np
 import math
 import matplotlib.pyplot as plt
