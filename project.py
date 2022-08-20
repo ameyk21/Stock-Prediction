@@ -55,16 +55,17 @@ model.add(layers.Dense(25))
 model.add(layers.Dense(1))
 model.summary()
 
+#data fitting with the adam optimiser and the loss munction as mean square error
 model.compile(optimizer='adam', loss='mean_squared_error')
-model.fit(x_train, y_train, batch_size= 1, epochs=1)
+model.fit(x_train, y_train, batch_size= 1, epochs=3)
 
-
+#evakuating model with rmse metric
 predictions = model.predict(x_test)
 predictions = scaler.inverse_transform(predictions)
 rmse = np.sqrt(np.mean(predictions - y_test)**2)
 print(rmse)
 
-
+#data visualization
 data = stock_data.filter(['Close'])
 train = data[:training_data_len]
 validation = data[training_data_len:]
